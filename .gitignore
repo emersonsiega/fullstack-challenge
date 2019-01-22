@@ -1,0 +1,22 @@
+######################
+# IntelliJ IDEA
+######################
+*.iml
+.idea/
+.idea/workspace.xml
+
+# OS Files #
+.DS_Store
+ 
+*.class
+ 
+# Package Files #
+*.jar
+*.war
+*.ear
+*.db
+
+**/target
+**/build
+**/bin
+**.git/
