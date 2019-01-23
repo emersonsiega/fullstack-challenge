@@ -12,6 +12,8 @@ import java.util.List;
 public class OrderService {
 	@Autowired
 	private OrderRepository repository;
+	@Autowired
+	private OrderDispatcherService dispatcherService;
 
 	public List<Order> findAll() {
 		return repository.findAll(new Sort(Sort.Direction.DESC, "dateTime"));
@@ -19,7 +21,7 @@ public class OrderService {
 
 	public void save(Order order) {
 		repository.save(order);
-		//TODO: Send to processing via JMS
+		dispatcherService.sendOrder(order);
 	}
 
 	public Order findById(String id) {
