@@ -1,8 +1,9 @@
-package br.com.kepha.challenge.salesservice.model;
+package br.com.kepha.challenge.core.model;
 
 import lombok.*;
 import org.springframework.data.annotation.Id;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @NoArgsConstructor
-public class Order {
+public class Order implements Serializable {
 	@Id
 	private String id;
 	@NonNull

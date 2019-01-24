@@ -1,7 +1,7 @@
 package br.com.kepha.challenge.salesservice.service;
 
 import br.com.kepha.challenge.salesservice.config.RabbitMQConfig;
-import br.com.kepha.challenge.salesservice.model.Order;
+import br.com.kepha.challenge.core.model.Order;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -17,10 +17,10 @@ public class OrderDispatcherService {
 	private static final Logger LOGGER = LoggerFactory.getLogger(OrderDispatcherService.class);
 
 	public void sendOrder(Order order) {
-		LOGGER.info("Sending order ", order.getId());
+		LOGGER.info("Sending order to dispatcher queue: " + order);
 
 		template.convertAndSend(RabbitMQConfig.EXCHANGE_NAME,
-				RabbitMQConfig.ROUTING_KEY, order.getId());
+				RabbitMQConfig.ROUTING_KEY, order);
 	}
 
 }

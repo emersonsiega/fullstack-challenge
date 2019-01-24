@@ -1,6 +1,6 @@
 package br.com.kepha.challenge.salesservice.endpoint;
 
-import br.com.kepha.challenge.salesservice.model.Product;
+import br.com.kepha.challenge.core.model.Product;
 import br.com.kepha.challenge.salesservice.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

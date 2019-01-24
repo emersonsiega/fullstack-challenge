@@ -1,6 +1,6 @@
 package br.com.kepha.challenge;
 
-import br.com.kepha.challenge.receiver.OrderReceiver;
+import br.com.kepha.challenge.dispatcherservice.receiver.OrderReceiver;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.Queue;
@@ -11,8 +11,10 @@ import org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "br.com.kepha.challenge")
+@EnableMongoRepositories(basePackages = "br.com.kepha.challenge")
 public class App {
 	static final String exchangeName = "order-exchange";
 	static final String queueName = "order-queue";

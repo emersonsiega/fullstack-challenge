@@ -1,4 +1,4 @@
-package br.com.kepha.challenge.salesservice.model;
+package br.com.kepha.challenge.core.model;
 
 import lombok.Data;
 import lombok.NonNull;

@@ -1,6 +1,6 @@
 package br.com.kepha.challenge.salesservice.endpoint;
 
-import br.com.kepha.challenge.salesservice.model.Order;
+import br.com.kepha.challenge.core.model.Order;
 import br.com.kepha.challenge.salesservice.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,23 +11,23 @@ import java.util.List;
 @RequestMapping("/orders")
 public class OrderAPI {
 
-    @Autowired
-    private OrderService service;
+	@Autowired
+	private OrderService service;
 
-    @RequestMapping
-    public List<Order> findAll() {
-        return service.findAll();
-    }
+	@RequestMapping
+	public List<Order> findAll() {
+		return service.findAll();
+	}
 
-    @RequestMapping("/{id}")
-    public Order findById(@PathVariable("id") String id) {
-        return service.findById(id);
-    }
+	@RequestMapping("/{id}")
+	public Order findById(@PathVariable("id") String id) {
+		return service.findById(id);
+	}
 
-    @RequestMapping(method = RequestMethod.POST)
-    public void save(@RequestBody Order order) {
-        service.save(order);
-    }
+	@RequestMapping(method = RequestMethod.POST)
+	public void save(@RequestBody Order order) {
+		service.save(order);
+	}
 }
 
 

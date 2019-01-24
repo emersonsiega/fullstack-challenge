@@ -15,8 +15,6 @@ public class RabbitMQConfig {
 	public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
 		RabbitTemplate template = new RabbitTemplate(connectionFactory);
 		return template;
-
-
 	}
 
 }
