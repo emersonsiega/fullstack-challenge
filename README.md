@@ -11,7 +11,6 @@ It's a dispatcher of orders, who fetch orders on RabbitMQ and update their statu
 **sales-app**  
 Web application connected to sales-service. It's a simple checkout app that enable users to make some orders.
 
-
 ### Getting started
 
 **Starting RabbitMQ**
@@ -22,16 +21,21 @@ docker-compose up -d
 ```
 
 **Run sales-service**
+
 ```
 //TODO
 ```
 
 **Run dispatcher-service**
+
 ```
 //TODO
 ```
 
 **Run sales-app**
+
 ```
-//TODO
+cd sales-app
+yarn install
+yarn start
 ```
