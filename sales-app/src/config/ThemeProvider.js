@@ -3,7 +3,7 @@ import { ThemeProvider as Provider } from 'styled-components'
 
 import GlobalStyle from './GlobalStyle'
 
-const theme = {
+export const theme = {
   header: '#D65050',
   background: '#FEFEFE',
   darkText: '#333',
@@ -11,6 +11,7 @@ const theme = {
   cardBackground: '#DCDCDC',
   primary: '#D7A04E',
   shadow: '#888888',
+  headerLoading: '#9a0707',
 }
 
 const ThemeProvider = ({ children }) => (
