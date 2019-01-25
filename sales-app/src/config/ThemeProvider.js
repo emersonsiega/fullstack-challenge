@@ -12,6 +12,7 @@ export const theme = {
   primary: '#D7A04E',
   shadow: '#888888',
   headerLoading: '#9a0707',
+  success: '#2F6738',
 }
 
 const ThemeProvider = ({ children }) => (

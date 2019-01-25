@@ -1,6 +1,6 @@
 import { showLoading, hideLoading } from 'react-redux-loading'
 
-import ProductsService from '../../service/products'
+import ProductsService from '../../service/ProductService'
 
 const FETCH_PRODUCTS = 'FETCH_PRODUCTS'
 

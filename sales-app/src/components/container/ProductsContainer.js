@@ -2,21 +2,21 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 
 import { fetchProducts } from '../../store/actions/products'
-import Product from '../presentational/Product'
+import ProductList from '../presentational/ProductList'
 
-const ProductsContainer = props => {
+const ProductsContainer = ({ onLoad, products }) => {
   useEffect(() => {
-    props.onLoad()
+    onLoad()
   }, [])
 
   return (
     <div>
-      <Product />
+      <ProductList products={products} />
     </div>
   )
 }
 
-const mapStateToProps = state => state
+const mapStateToProps = ({ products = {} }) => ({ products: Object.values(products) })
 const mapDispatchToProps = dispatch => ({
   onLoad: () => dispatch(fetchProducts()),
 })
