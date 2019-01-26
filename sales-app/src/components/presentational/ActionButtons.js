@@ -6,9 +6,6 @@ import Icon from './Icon'
 
 const ActionButtonStyle = styled(Button)`
   border: none;
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
 `
 
 const onAction = (e, callback, value) => {
@@ -38,4 +35,14 @@ const RemoveButton = ({ callback, value }) => (
   </ActionButtonStyle>
 )
 
-export { AddButton, RemoveButton }
+const FinishButton = ({ callback, value }) => (
+  <ActionButtonStyle
+    size="sm"
+    color="success"
+    outline
+    onClick={e => onAction(e, callback, value)}>
+    <Icon name="faCheckCircle" size="3x" />
+  </ActionButtonStyle>
+)
+
+export { AddButton, RemoveButton, FinishButton }

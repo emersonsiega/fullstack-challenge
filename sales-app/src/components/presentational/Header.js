@@ -1,6 +1,7 @@
 import React from 'react'
-import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap'
+import { Navbar, Nav, NavItem } from 'reactstrap'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 import Icon from './Icon'
 
@@ -18,23 +19,50 @@ const CartIcon = styled.div`
   color: ${props => (props.size === 0 ? props.theme.lightText : props.theme.primary)};
 `
 
+const NavIcon = styled.div`
+  color: ${props => props.theme.lightText};
+  font-size: 1.25rem;
+  padding-top: auto;
+  padding-bottom: auto;
+`
+
+const NavLink = styled(Link)`
+  margin: 20px;
+  color: ${props => props.theme.lightText};
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+    color: ${props => props.theme.lightText};
+  }
+`
+
+const Item = styled(NavItem)`
+  margin-top: auto;
+  margin-bottom: auto;
+`
+
 const Header = ({ cartItems = [] }) => (
   <ThemmedNavbar>
-    <NavbarBrand>
-      <Icon name="faWineBottle" size="lg" />
-      <Icon name="faWineGlassAlt" size="lg" />
-    </NavbarBrand>
+    <Link to="/">
+      <NavIcon>
+        <Icon name="faWineBottle" size="lg" />
+        <Icon name="faWineGlassAlt" size="lg" />
+      </NavIcon>
+    </Link>
     <Nav>
-      <NavItem>
-        <NavLink>Minha Adega</NavLink>
-      </NavItem>
-      <NavItem>
-        <NavLink>
-          <CartIcon size={cartItems.length}>
-            <Icon name="faShoppingBasket" size="lg" />
-          </CartIcon>
-        </NavLink>
-      </NavItem>
+      <Item>
+        <NavLink to="/orders">Minha Adega</NavLink>
+      </Item>
+      <Item>
+        <Link to={cartItems.length > 0 ? '/cart' : ''}>
+          <NavIcon>
+            <CartIcon size={cartItems.length}>
+              <Icon name="faShoppingBasket" size="lg" />
+            </CartIcon>
+          </NavIcon>
+        </Link>
+      </Item>
     </Nav>
   </ThemmedNavbar>
 )

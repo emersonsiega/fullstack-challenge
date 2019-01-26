@@ -6,7 +6,7 @@ import Header from '../presentational/Header'
 const HeaderContainer = ({ items }) => <Header cartItems={items} />
 
 const mapStateToProps = ({ cart = {} }) => ({
-  items: Object.values(cart) || [],
+  items: Object.values(cart.items) || [],
 })
 
 export default connect(mapStateToProps)(HeaderContainer)

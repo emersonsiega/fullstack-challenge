@@ -5,6 +5,7 @@ import styled from 'styled-components'
 const Main = styled.main`
   margin: 10px;
   margin-top: 65px;
+  overflow-x: hidden;
 `
 
 const MainContent = ({ children }) => (
