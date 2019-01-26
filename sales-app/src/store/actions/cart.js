@@ -5,6 +5,7 @@ const FETCH_CART = 'FETCH_CART'
 const ADD_ITEM = 'ADD_ITEM'
 const REMOVE_ITEM = 'REMOVE_ITEM'
 const DECREASE_ITEM_QUANTITY = 'DECREASE_ITEM_QUANTITY'
+const CART_FINISHED = 'CART_FINISHED'
 
 const actionFetchCart = cart => ({
   type: FETCH_CART,
@@ -60,12 +61,23 @@ const removeItem = (id, remove = true) => async dispatch => {
   }
 }
 
+const actionCartFinished = () => ({
+  type: CART_FINISHED,
+})
+
+const cartFinished = () => async dispatch => {
+  await CartLocalService.clear()
+  dispatch(actionCartFinished())
+}
+
 export {
   FETCH_CART,
   ADD_ITEM,
   REMOVE_ITEM,
   DECREASE_ITEM_QUANTITY,
+  CART_FINISHED,
   fetchCart,
   addItem,
   removeItem,
+  cartFinished,
 }

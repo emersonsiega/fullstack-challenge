@@ -20,7 +20,7 @@ const FinishButtonDiv = styled.div`
   justify-content: flex-end;
 `
 
-const CartFinishContainer = ({ items, total }) => (
+const CartFinishContainer = ({ items, total, onSaveOrder }) => (
   <FinishContainer>
     <h4 className="text-center font-weight-bold">FINALIZAR</h4>
     <LabelGroup label="Quantidade">
@@ -32,7 +32,7 @@ const CartFinishContainer = ({ items, total }) => (
       <PriceText value={total} />
     </LabelGroup>
     <FinishButtonDiv>
-      <FinishButton value={items} callback={() => alert('finished!')} />
+      <FinishButton value={{ items, total }} callback={onSaveOrder} />
     </FinishButtonDiv>
   </FinishContainer>
 )

@@ -13,7 +13,14 @@ const CartContainer = styled(Row)`
   align-items: flex-start;
 `
 
-const Cart = ({ items, total, onRemoveItem, onAddItem, onDecreaseQuantity }) => {
+const Cart = ({
+  items,
+  total,
+  onRemoveItem,
+  onAddItem,
+  onDecreaseQuantity,
+  onSaveOrder,
+}) => {
   if (items.length === 0) {
     return <CartEmpty />
   }
@@ -42,7 +49,7 @@ const Cart = ({ items, total, onRemoveItem, onAddItem, onDecreaseQuantity }) => 
         ))}
       </Col>
       <Col xs="12" md="12" lg="4">
-        <CartFinishContainer items={items} total={total} />
+        <CartFinishContainer items={items} total={total} onSaveOrder={onSaveOrder} />
       </Col>
     </CartContainer>
   )

@@ -5,6 +5,7 @@ import HeaderContainer from '../container/HeaderContainer'
 import Loading from '../presentational/Loading'
 import ThemeProvider from '../../config/ThemeProvider'
 import MainContainer from '../container/MainContainer'
+import Toast from '../presentational/Toast'
 
 const ProductsContainer = lazy(() => import('./ProductsContainer'))
 const CartContainer = lazy(() => import('./CartContainer'))
@@ -13,6 +14,7 @@ const App = () => (
   <ThemeProvider>
     <>
       <HeaderContainer />
+      <Toast />
       <Loading />
       <MainContainer>
         <Switch>

@@ -3,9 +3,12 @@ import {
   ADD_ITEM,
   REMOVE_ITEM,
   DECREASE_ITEM_QUANTITY,
+  CART_FINISHED,
 } from '../actions/cart'
 
-const cart = (state = { items: [], total: 0 }, action) => {
+const INITIAL_STATE = { items: [], total: 0 }
+
+const cart = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case FETCH_CART:
       return {
@@ -31,6 +34,8 @@ const cart = (state = { items: [], total: 0 }, action) => {
         total: action.total,
       }
     }
+    case CART_FINISHED:
+      return INITIAL_STATE
     default:
       return state
   }
