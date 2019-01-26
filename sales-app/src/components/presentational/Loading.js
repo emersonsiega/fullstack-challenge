@@ -3,7 +3,7 @@ import LoadingBar from 'react-redux-loading'
 
 import { theme } from '../../config/ThemeProvider'
 
-const Loading = () => (
+const LoadingHeader = () => (
   <LoadingBar
     style={{
       height: '2px',
@@ -16,4 +16,4 @@ const Loading = () => (
   />
 )
 
-export default Loading
+export default LoadingHeader

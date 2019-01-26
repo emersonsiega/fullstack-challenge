@@ -1,9 +1,9 @@
 import React from 'react'
-import { Col, Button } from 'reactstrap'
+import { Col } from 'reactstrap'
 import styled from 'styled-components'
 
 import FlatCard from './FlatCard'
-import Icon from './Icon'
+import { AddButton, RemoveButton } from './ActionButtons'
 
 const ProductsContainer = styled.div`
   display: flex;
@@ -61,35 +61,32 @@ const Price = styled.h5`
   }
 `
 
-const AddButton = styled(Button)`
-  border: none;
-  background: transparent;
-  color: ${props => props.theme.success};
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-`
+const ProductList = ({ products = [], onAddItem, onRemoveItem, cartItems = [] }) => {
+  const isOnCart = ({ id }) => cartItems.indexOf(id) !== -1
 
-const ProductList = ({ products = [] }) => (
-  <ProductsContainer>
-    {products.map(product => (
-      <Col key={product.id} xs="12" md="6" lg="4">
-        <CardContainer>
-          <CardPrimary>
-            <Image src={product.imageURL} alt={product.name} />
-          </CardPrimary>
-          <CardBackground>
-            <Name>{product.name}</Name>
-            <Description>{product.description}</Description>
-            <Price>{Number(product.price).toFixed(2)}</Price>
-            <AddButton size="sm" color="success" outline>
-              <Icon name="faPlus" size="2x" />
-            </AddButton>
-          </CardBackground>
-        </CardContainer>
-      </Col>
-    ))}
-  </ProductsContainer>
-)
+  return (
+    <ProductsContainer>
+      {products.map(product => (
+        <Col key={product.id} xs="12" md="6" lg="4">
+          <CardContainer>
+            <CardPrimary>
+              <Image src={product.imageURL} alt={product.name} />
+            </CardPrimary>
+            <CardBackground>
+              <Name>{product.name}</Name>
+              <Description>{product.description}</Description>
+              <Price>{Number(product.price).toFixed(2)}</Price>
+              {isOnCart(product) ? (
+                <RemoveButton value={product} callback={onRemoveItem} />
+              ) : (
+                <AddButton value={product} callback={onAddItem} />
+              )}
+            </CardBackground>
+          </CardContainer>
+        </Col>
+      ))}
+    </ProductsContainer>
+  )
+}
 
 export default ProductList

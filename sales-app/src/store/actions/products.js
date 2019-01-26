@@ -1,5 +1,3 @@
-import { showLoading, hideLoading } from 'react-redux-loading'
-
 import ProductsService from '../../service/ProductService'
 
 const FETCH_PRODUCTS = 'FETCH_PRODUCTS'
@@ -10,16 +8,9 @@ const actionFetchProducts = products => ({
 })
 
 const fetchProducts = () => dispatch => {
-  dispatch(showLoading())
-  ProductsService.products()
-    .then(p => {
-      dispatch(actionFetchProducts(p))
-      dispatch(hideLoading())
-    })
-    .catch(err => {
-      console.error(err)
-      dispatch(hideLoading())
-    })
+  return ProductsService.products().then(products =>
+    dispatch(actionFetchProducts(products))
+  )
 }
 
 export { FETCH_PRODUCTS, fetchProducts }

@@ -1,19 +1,19 @@
 import React from 'react'
 
-import Header from '../presentational/Header'
+import HeaderContainer from '../container/HeaderContainer'
 import Loading from '../presentational/Loading'
 import ThemeProvider from '../../config/ThemeProvider'
-import MainContent from '../presentational/MainContent'
+import MainContainer from '../container/MainContainer'
 import ProductsContainer from './ProductsContainer'
 
 const App = () => (
   <ThemeProvider>
     <>
-      <Header />
+      <HeaderContainer />
       <Loading />
-      <MainContent>
+      <MainContainer>
         <ProductsContainer />
-      </MainContent>
+      </MainContainer>
     </>
   </ThemeProvider>
 )

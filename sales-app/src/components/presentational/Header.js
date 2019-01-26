@@ -14,7 +14,11 @@ const ThemmedNavbar = styled(Navbar)`
   z-index: 999;
 `
 
-const Header = () => (
+const CartIcon = styled.div`
+  color: ${props => (props.size === 0 ? props.theme.lightText : props.theme.primary)};
+`
+
+const Header = ({ cartItems = [] }) => (
   <ThemmedNavbar>
     <NavbarBrand>
       <Icon name="faWineBottle" size="lg" />
@@ -26,7 +30,9 @@ const Header = () => (
       </NavItem>
       <NavItem>
         <NavLink>
-          <Icon name="faShoppingCart" size="lg" />
+          <CartIcon size={cartItems.length}>
+            <Icon name="faShoppingBasket" size="lg" />
+          </CartIcon>
         </NavLink>
       </NavItem>
     </Nav>
