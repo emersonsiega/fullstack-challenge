@@ -20,7 +20,7 @@ const Cart = ({ items, total, onRemoveItem, onAddItem, onDecreaseQuantity }) => 
 
   return (
     <CartContainer>
-      <Col xs="12" md="8" lg="8">
+      <Col xs="12" md="12" lg="8">
         {items.map(item => (
           <CardProduct
             key={item.id}
@@ -29,7 +29,8 @@ const Cart = ({ items, total, onRemoveItem, onAddItem, onDecreaseQuantity }) => 
             showDetails={false}
             showRemove={true}
             onRemoveItem={onRemoveItem}
-            primarywidth={20}
+            primarywidth={15}
+            actionWidth={33}
             actionContent={
               <CartActions
                 item={item}
@@ -40,7 +41,7 @@ const Cart = ({ items, total, onRemoveItem, onAddItem, onDecreaseQuantity }) => 
           />
         ))}
       </Col>
-      <Col xs="12" md="4" lg="4">
+      <Col xs="12" md="12" lg="4">
         <CartFinishContainer items={items} total={total} />
       </Col>
     </CartContainer>
