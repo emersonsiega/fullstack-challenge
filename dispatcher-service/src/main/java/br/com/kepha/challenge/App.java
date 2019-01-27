@@ -10,10 +10,12 @@ import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
 import org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
-@SpringBootApplication(scanBasePackages = "br.com.kepha.challenge")
+@SpringBootApplication(scanBasePackages = "br.com.kepha.challenge",
+		exclude={MongoAutoConfiguration.class})
 @EnableMongoRepositories(basePackages = "br.com.kepha.challenge")
 public class App {
 	static final String exchangeName = "order-exchange";
