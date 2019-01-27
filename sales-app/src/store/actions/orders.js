@@ -13,6 +13,7 @@ const actionFetchOrders = orders => ({
 
 const fetchOrders = () => async dispatch => {
   dispatch(showLoading())
+
   try {
     const orders = await OrderService.orders()
     dispatch(actionFetchOrders(orders))

@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import Order from './Order'
 import EmptyList from './EmptyList'
 import { RefreshButton } from './ActionButtons'
+import LoadingSpiner from './LoadingSpinner'
 
 const OrdersContainer = styled.div`
   display: flex;
@@ -26,22 +27,25 @@ const RefreshButtonFloat = styled(RefreshButton)`
   margin-right: 20px;
 `
 
-const OrdersList = ({ orders, onRefresh }) => {
-  if (orders.length === 0) {
+const OrdersList = ({ orders, isLoading, onRefresh }) => {
+  if (!isLoading && orders.length === 0) {
     return <EmptyList text="Nenhum pedido encontrado" icon="faBoxOpen" />
   }
 
   return (
-    <OrdersContainer>
-      <TitleContainer>
-        <Title>Meus pedidos</Title>
-        {orders.length > 0 && <span>{orders.length} pedidos realizados</span>}
-        <RefreshButtonFloat callback={onRefresh} />
-      </TitleContainer>
-      {orders.map(order => (
-        <Order key={order.id} order={order} />
-      ))}
-    </OrdersContainer>
+    <>
+      {isLoading && <LoadingSpiner />}
+      <OrdersContainer>
+        <TitleContainer>
+          <Title>Meus pedidos</Title>
+          {orders.length > 0 && <span>{orders.length} pedidos realizados</span>}
+          <RefreshButtonFloat callback={onRefresh} />
+        </TitleContainer>
+        {orders.map(order => (
+          <Order key={order.id} order={order} />
+        ))}
+      </OrdersContainer>
+    </>
   )
 }
 

@@ -10,12 +10,11 @@ const fetchAll = () => async dispatch => {
 
     await dispatch(fetchProducts())
     await dispatch(fetchCart())
-
-    dispatch(hideLoading())
   } catch (err) {
     console.error(err)
-    dispatch(hideLoading())
   }
+
+  dispatch(hideLoading())
 }
 
 export { FETCH_ALL, fetchAll }

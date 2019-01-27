@@ -5,12 +5,18 @@ import { addItem, removeItem } from '../../store/actions/cart'
 
 import ProductList from '../presentational/ProductList'
 
-const ProductsContainer = ({ products, addItem, removeItem }) => (
-  <ProductList products={products} onAddItem={addItem} onRemoveItem={removeItem} />
+const ProductsContainer = ({ products, addItem, removeItem, isLoading = true }) => (
+  <ProductList
+    products={products}
+    onAddItem={addItem}
+    onRemoveItem={removeItem}
+    isLoading={isLoading}
+  />
 )
 
-const mapStateToProps = ({ products = {}, cart = {} }) => {
+const mapStateToProps = ({ products = {}, cart = {}, loadingBar }) => {
   const cartItems = Object.values(cart.items).map(item => item.id)
+  const isLoading = loadingBar.default > 0
 
   const productsList = Object.values(products).map(prod => ({
     ...prod,
@@ -19,6 +25,7 @@ const mapStateToProps = ({ products = {}, cart = {} }) => {
 
   return {
     products: productsList,
+    isLoading,
   }
 }
 

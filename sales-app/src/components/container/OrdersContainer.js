@@ -4,15 +4,18 @@ import { connect } from 'react-redux'
 import { fetchOrders } from '../../store/actions/orders'
 import OrdersList from '../presentational/OrdersList'
 
-const OrdersContainer = ({ onLoad, orders = [] }) => {
+const OrdersContainer = ({ onLoad, isLoading = true, orders = [] }) => {
   useEffect(() => {
     onLoad()
   }, [])
 
-  return <OrdersList orders={orders} onRefresh={onLoad} />
+  return <OrdersList orders={orders} isLoading={isLoading} onRefresh={onLoad} />
 }
 
-const mapStateToProps = ({ orders = {} }) => ({ orders: Object.values(orders) })
+const mapStateToProps = ({ orders = {}, loadingBar }) => ({
+  orders: Object.values(orders),
+  isLoading: loadingBar.default > 0,
+})
 
 const mapDispatchToProps = dispatch => ({
   onLoad: () => dispatch(fetchOrders()),
