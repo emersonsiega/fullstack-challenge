@@ -19,9 +19,13 @@ Simple checkout app that allow users to make some orders. Developed following [t
 **Starting RabbitMQ**
 
 ```
-cd docker-compose
+cd docker-rabbitmq
 docker-compose up -d
 ```
+
+_RabbitMQ Management: http://localhost:15672_  
+_user: admin_  
+_password: adm777_
 
 **Run sales-service**
 
