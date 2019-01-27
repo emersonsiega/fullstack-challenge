@@ -19,7 +19,7 @@ public class Order implements Serializable {
 	private BigDecimal total;
 	private OrderStatus status = OrderStatus.WAITING;
 	@NonNull
-	private LocalDateTime dateTime;
+	private LocalDateTime dateTime = LocalDateTime.now();
 	@NonNull
 	private List<OrderItem> items;
 }
