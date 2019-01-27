@@ -19,6 +19,10 @@ public class App {
 	static final String exchangeName = "order-exchange";
 	static final String queueName = "order-queue";
 
+	public static void main(String[] args) {
+		SpringApplication.run(App.class, args);
+	}
+
 	@Bean
 	Queue queue() {
 		return new Queue(queueName, false);
@@ -47,9 +51,5 @@ public class App {
 	@Bean
 	MessageListenerAdapter listenerAdapter(OrderReceiver receiver) {
 		return new MessageListenerAdapter(receiver, "receiveOrder");
-	}
-
-	public static void main(String[] args) {
-		SpringApplication.run(App.class, args);
 	}
 }
