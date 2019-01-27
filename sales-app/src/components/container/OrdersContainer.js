@@ -9,7 +9,7 @@ const OrdersContainer = ({ onLoad, orders = [] }) => {
     onLoad()
   }, [])
 
-  return <OrdersList orders={orders} />
+  return <OrdersList orders={orders} onRefresh={onLoad} />
 }
 
 const mapStateToProps = ({ orders = {} }) => ({ orders: Object.values(orders) })

@@ -45,4 +45,15 @@ const FinishButton = ({ callback, value }) => (
   </ActionButtonStyle>
 )
 
-export { AddButton, RemoveButton, FinishButton }
+const RefreshButton = ({ callback, value, ...props }) => (
+  <ActionButtonStyle
+    size="sm"
+    color="success"
+    outline
+    onClick={e => onAction(e, callback, value)}
+    {...props}>
+    <Icon name="faSyncAlt" size="2x" />
+  </ActionButtonStyle>
+)
+
+export { AddButton, RemoveButton, FinishButton, RefreshButton }
