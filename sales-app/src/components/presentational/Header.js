@@ -52,10 +52,10 @@ const Header = ({ cartItems = [] }) => (
     </Link>
     <Nav>
       <Item>
-        <NavLink to="/orders">Minha Adega</NavLink>
+        <NavLink to="/orders">Meus pedidos</NavLink>
       </Item>
       <Item>
-        <Link to={cartItems.length > 0 ? '/cart' : ''}>
+        <Link to="/cart">
           <NavIcon>
             <CartIcon size={cartItems.length}>
               <Icon name="faShoppingBasket" size="lg" />

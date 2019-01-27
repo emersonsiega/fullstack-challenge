@@ -3,6 +3,7 @@ import { Col } from 'reactstrap'
 import styled from 'styled-components'
 
 import CartProduct from './CardProduct'
+import EmptyList from './EmptyList'
 
 const ProductsContainer = styled.div`
   display: flex;
@@ -11,6 +12,10 @@ const ProductsContainer = styled.div`
 `
 
 const ProductList = ({ products = [], onAddItem, onRemoveItem }) => {
+  if (products.length === 0) {
+    return <EmptyList text="Nenhum produto encontrado!" icon="faWineBottle" />
+  }
+
   return (
     <ProductsContainer>
       {products.map(product => {

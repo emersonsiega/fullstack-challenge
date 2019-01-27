@@ -9,6 +9,7 @@ import Toast from '../presentational/Toast'
 
 const ProductsContainer = lazy(() => import('./ProductsContainer'))
 const CartContainer = lazy(() => import('./CartContainer'))
+const OrdersContainer = lazy(() => import('./OrdersContainer'))
 
 const App = () => (
   <ThemeProvider>
@@ -20,6 +21,7 @@ const App = () => (
         <Switch>
           <Route path="/" exact component={() => <ProductsContainer />} />
           <Route path="/cart" exact component={() => <CartContainer />} />
+          <Route path="/orders" exact component={() => <OrdersContainer />} />
         </Switch>
       </MainContainer>
     </>

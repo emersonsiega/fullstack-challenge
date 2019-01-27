@@ -2,7 +2,7 @@ import React from 'react'
 import { Row, Col } from 'reactstrap'
 import styled from 'styled-components'
 
-import CartEmpty from './CartEmpty'
+import EmptyList from './EmptyList'
 import CartActions from './CartActions'
 import CartFinishContainer from './CartFinishContainer'
 import CardProduct from './CardProduct'
@@ -22,7 +22,7 @@ const Cart = ({
   onSaveOrder,
 }) => {
   if (items.length === 0) {
-    return <CartEmpty />
+    return <EmptyList text="Seu carrinho está vazio!" icon="faShoppingBasket" />
   }
 
   return (
