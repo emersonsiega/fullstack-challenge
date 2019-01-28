@@ -4,6 +4,8 @@ ENV NPM_CONFIG_LOGLEVEL warn
 
 COPY . .
 
+RUN npm install -g env-cmd
+
 RUN npm run build:production
 
 RUN npm install -g serve
