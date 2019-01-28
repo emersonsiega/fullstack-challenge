@@ -18,7 +18,7 @@ Simple checkout app that allow users to make some orders. Developed following [t
 
 Services are running with docker-compose, except MongoDB and RabbitMQ.
 
-Run `mvn clean install` to build the project and create docker images for the services.
+Run `mvn clean install` to build the project and create docker images for the services. *(Need Java 11 instaled)*  
 
 Run `docker-compose up -d` to start containers
 
