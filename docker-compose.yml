@@ -1,6 +1,19 @@
 version: '2'
 
 services:
+  rabbitmq:
+    image: br.com.kepha.challenge/rabbitmq:0.0.1
+    build:
+      context: docker-rabbitmq
+      dockerfile: Dockerfile
+    container_name: rabbitmq-server-cont
+    restart: always
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+    volumes:
+      - ./docker-rabbitmq/conf/rabbitmq.config:/etc/rabbitmq/rabbitmq.config:ro
+      - ./docker-rabbitmq/conf/definitions.json:/etc/rabbitmq/definitions.json:ro
   dispatcher-service:
     image: br.com.kepha.challenge/dispatcher-service:0.0.1
     container_name: dispatcher-service-cont
@@ -13,3 +26,12 @@ services:
     restart: always
     ports:
       - '8080:8080'
+  sales-app:
+    image: br.com.kepha.challenge/sales-app:0.0.1
+    build:
+      context: sales-app
+      dockerfile: Dockerfile
+    container_name: sales-app-cont
+    restart: always
+    ports:
+      - '3000:5000'
