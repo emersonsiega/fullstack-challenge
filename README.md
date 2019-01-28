@@ -28,4 +28,7 @@ Run `docker-compose up -d` to start containers
 **MongoDB running on MLab**  
 **RabbitMQ running on AWS** -> http://18.223.6.189:15672  
 _user: admin_  
-_password: adm777_
+_password: adm777_  
+
+
+Messages are processed every 30 seconds.
