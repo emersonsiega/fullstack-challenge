@@ -6,6 +6,8 @@ COPY . .
 
 RUN npm install -g env-cmd
 
+RUN npm install
+
 RUN npm run build:production
 
 RUN npm install -g serve
