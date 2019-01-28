@@ -17,6 +17,8 @@ services:
   dispatcher-service:
     image: br.com.kepha.challenge/dispatcher-service:0.0.1
     container_name: dispatcher-service-cont
+    depends_on:
+      - rabbitmq
     restart: always
     ports:
       - '8081:8081'
@@ -24,6 +26,8 @@ services:
     image: br.com.kepha.challenge/sales-service:0.0.1
     container_name: sales-service-cont
     restart: always
+    depends_on:
+      - rabbitmq
     ports:
       - '8080:8080'
   sales-app:

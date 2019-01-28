@@ -14,35 +14,18 @@ Fetch orders from RabbitMQ and update their status.
 **sales-app**  
 Simple checkout app that allow users to make some orders. Developed following [this](https://www.figma.com/proto/0wYAucbtpxfzQlbdbC0uRagV/Challenge?node-id=1%3A2&scaling=scale-down) prototype.
 
-### Getting started
+## Getting started
 
-**Starting RabbitMQ**
+All services are running with docker-compose (except MongoDB, that is on MLab).
 
-```
-cd docker-rabbitmq
-docker-compose up -d
-```
+Run `mvn clean install` to build the project and create docker images for the services.
 
-_RabbitMQ Management: http://localhost:15672_  
+Run `docker-compose up -d` to start all containers
+
+**RabbitMQ Management** -> http://localhost:15672  
 _user: admin_  
 _password: adm777_
 
-**Run sales-service**
-
-```
-//TODO
-```
-
-**Run dispatcher-service**
-
-```
-//TODO
-```
-
-**Run sales-app**
-
-```
-cd sales-app
-yarn install
-yarn start
-```
+**sales-service** -> Running localhost 8080  
+**dispatcher-service** -> Running localhost 8081  
+**sales-app** -> http://localhost:3000
