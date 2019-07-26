@@ -1,6 +1,11 @@
 # fullstack-challenge
 
-A challenge project :)
+A challenge project received from Kepha during the hiring process.
+This challenge have three parts:
+ - Back-end service to provide some products and receive sales orders.
+ - Back-end service to dispatch the received orders via RabbitMQ.
+ - Front-end app to make the orders.
+ 
 
 **challenge-core**  
 Model and repository classes used by other modules.
@@ -16,19 +21,10 @@ Simple checkout app that allow users to make some orders. Developed following [t
 
 ## Getting started
 
-Services are running with docker-compose, except MongoDB and RabbitMQ.
+Services are running with docker-compose, except MongoDB and RabbitMQ. (These two need to be deployed manually)
 
 Run `mvn clean install` to build the project and create docker images for the services. *(Need Java 11 instaled)*  
 
 Run `docker-compose up -d` to start containers
 
-**sales-service** -> localhost:8080  
-**dispatcher-service** -> localhost:8081  
-**sales-app** -> http://localhost:3000  
-**MongoDB running on MLab**  
-**RabbitMQ running on AWS** -> http://18.223.6.189:15672  
-_user: admin_  
-_password: adm777_  
-
-
-Messages are processed every 30 seconds.
+RabbitMQ process messages every 30 seconds.
